@@ -1,0 +1,14 @@
+    
+   <h2>Celebrities</h2>
+
+   <button><a href="/celebrities/create">New Celebrity</a></button>
+    
+    
+    {{#each details}}
+        <div>
+            <h1>{{name}}</h1>
+            <h3>occupation: {{occupation}}</h3>
+            <h3>catchPhrase: {{catchPhrase}}</h3>
+            <hr>
+        </div>
+    {{/each}}
