@@ -1,5 +1,6 @@
 const router = require("express").Router()
 
+const { findById } = require("../models/Celebrity.model")
 // const { Router } = require("express")
 const Celebrity = require("../models/Celebrity.model")
 
@@ -38,6 +39,20 @@ router.post("/celebrities/create", (req, res, next)=>{
     .catch(()=>{
         res.render("celebrities/new-celebrities")
     })
+
+})
+
+
+
+router.get("/celebrity/:celebrityid", (req, res, next)=>{
+
+    const {celebrityid} = req.params
+
+    Celebrity.findById(celebrityid)
+    .then(data=>{
+        res.render("celebrities/celebrity-details", data)
+    })
+    .catch(err=>console.log(err))
 
 })
 

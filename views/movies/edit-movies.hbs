@@ -1,0 +1,29 @@
+<h2>Edit Movies</h2>
+
+{{!-- Update --}}
+
+{{!-- need a FORM with the current info  --}}
+
+{{!-- need a POST route to recieve the new info --}}
+
+
+<form action="/movies/{{data.id}}/edit" method="post">
+    <label>Title
+        <input type="text" name="title" value="{{data.title}}" >
+    </label>
+    <label>Genre
+        <input type="text" name="genre" value="{{data.genre}}">
+    </label>
+    <label>Plot
+        <input type="text" name="plot" value="{{data.plot}}">
+    </label>
+    <select name="cast" multiple>
+        {{#each data.cast}}
+            <option value="{{id}}"selected>{{name}}</option>
+        {{/each}}
+    </select>
+
+    <button type="submit">Update</button>
+
+</form>
+
